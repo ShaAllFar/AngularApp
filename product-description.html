@@ -1,8 +1,8 @@
 <div class="description-group">
   <h4>Description</h4>
-  <blockquote>{{product.description}}</blockquote>
+  <p>{{product.description}}</p>
   <p><span>Size:</span> {{product.size}}</p>
   <p><span>Price:</span> {{product.price | currency}}</p>
-  <input type="submit" id=purchase ng-show="store.products.canPurchase"></button>
+  <input type="submit" class="purchase" value="Buy Now" ng-show="store.products.canPurchase"/>
 
 </div>

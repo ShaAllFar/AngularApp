@@ -19,6 +19,9 @@
   width: 90%;
   margin-left: 5%;
 }
+.description p{
+  margin: 10px 0px;
+}
 
 /*reviews*/
 
