@@ -6,44 +6,18 @@
       <a href ng-click="tab.setTab(2)">Reviews</a></li>
   </ul>
   <!-- description -->
-  <product-description ng-show="tab.isSet(1)"></product-description>
+  <product-description class="description" ng-show="tab.isSet(1)"></product-description>
   <!-- reviews -->
-  <div ng-show="tab.isSet(2)">
+  <div class="reviews" ng-show="tab.isSet(2)">
     <ul>
       <h4>Reviews</h4>
       <li ng-repeat="review in product.reviews">
-        <blockquote>
-          <strong>{{review.stars}} Stars</strong>
-          {{review.body}}
+          <span>{{review.stars}} Stars</span>
+          <p>"{{review.body}}"</p>
           <cite>-{{review.author}} {{review.createdOn | date}}</cite>
-        </blockquote>
       </li>
     </ul>
     <!-- review form -->
-    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
-      <!-- live preview -->
-      <blockquote>
-        <strong>{{reviewCtrl.review.stars}} Stars</strong>
-        {{reviewCtrl.review.body}}
-        <cite>-{{reviewCtrl.review.author}}</cite>
-      </blockquote>
-      <!-- form -->
-      <h4>Submit A Review</h4>
-      <fieldset class=form-group>
-        <select class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars" ng-model="reviewCtrl.review.stars" required>
-          <option value="">Rate the Product</option>
-        </select>
-      </fieldset>
-      <fieldset class=form-group>
-        <textarea class="form-control" placeholder="Write A Review" title="Review" ng-model="reviewCtrl.review.body"></textarea>
-      </fieldset>
-      <fieldset class=form-group>
-        <input type="email" class="form-control" placeholder="john@email.com" ng-model="reviewCtrl.review.author" required/>
-      </fieldset>
-      <fieldset>
-        <input type="submit" class="btn" value="Submit Review" />
-      </fieldset>
-
-    </form>
+    <product-reviews></product-reviews>
   </div>
 </section>
