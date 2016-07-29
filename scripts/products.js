@@ -23,4 +23,19 @@
       controllerAs: 'tab'
     };
   });
+  app.directive('productReviews',function(){
+    return{
+      restrict:'E',
+      templateUrl: 'product-reviews.html',
+      controller: function(){
+        this.review = {};
+        this.addReview = function(products){
+          this.review.createdOn = Date.now();
+          products.reviews.push(this.review);
+          this.review = {};
+        };
+      },
+      controllerAs: 'reviewCtrl'
+    };
+  });
 })();

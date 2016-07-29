@@ -8,12 +8,4 @@
     });
   }]);
 
-  app.controller('ReviewController', function(){
-    this.review = {};
-    this.addReview = function(products){
-      this.review.createdOn = Date.now();
-      products.reviews.push(this.review);
-      this.review = {};
-    };
-  });
 })();

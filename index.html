@@ -4,9 +4,10 @@
     <title>Angular Store App</title>
     <link type="text/css" rel="stylesheet" href="style/style.css"/>
     <link type="text/css" rel="stylesheet" href="style/validation.css"/>
-    <script type="text/javascript" src="/scripts/vendor/angular.min.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/products.js"></script>
+    <link type="text/css" rel="stylesheet" href="style/vendor/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="style/base.css"/>
+
+
 
   </head>
   <body ng-controller="StoreController as store">
@@ -17,19 +18,19 @@
       <!-- products container -->
       <div class="products-container">
       <!-- products-group -->
-        <div id="product-items" ng-hide="store.product.soldOut" ng-repeat="product in store.products">
+        <div class="product-items" ng-hide="store.product.soldOut" ng-repeat="product in store.products">
           <h3>{{product.name}}</h3>
           <img ng-src="{{product.image}}">
-          <p>{{product.size}}</p>
-          <p>{{product.price | currency}}</p>
-          <button id=purchase ng-show="store.products.canPurchase"></button>
-
+        
       <!-- tabs -->
-      <product-tabs></product-tabs>
-    </div>
-  </div>
+          <product-tabs></product-tabs>
+        </div>
+      </div>
     </main>
     <footer>
     </footer>
+    <script type="text/javascript" src="/scripts/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/products.js"></script>
   </body>
 </html>
